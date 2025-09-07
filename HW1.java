@@ -1,6 +1,6 @@
 
 /*
- * *** PLACE YOUR NAME / Comp 272 002 ***
+ * *** Joanelis Rivera Matos / Comp 272 002 ***
  *
  * Homework # 1 (Programming Assignment). This Java class defines some basic
  * manipulation operations on Linked-Lists and Stacks.
