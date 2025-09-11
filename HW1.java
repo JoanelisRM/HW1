@@ -87,7 +87,18 @@ public class HW1 {
          */
         public void removeElementsLT ( int ltValue ) {
 
-            // YOUR CODE GOES HERE
+            Node current = head;
+            while(head != null && head.data <= ltValue){
+                head = head.next;
+            }
+
+            while (current != null && current.next != null) {
+                if (current.next.data <= ltValue) {
+                    current.next = current.next.next;
+                } else {
+                    current = current.next;
+                }
+            }
 
             return;
         }
@@ -100,7 +111,18 @@ public class HW1 {
 
         public void removeElement ( int value ) {
 
-            // YOUR CODE GOES HERE
+            Node current = head;
+            while(head != null && head.data == value){
+                head = head.next;
+            }
+
+            while (current != null && current.next != null) {
+                if (current.next.data == value) {
+                    current.next = current.next.next;
+                } else {
+                    current = current.next;
+                }
+            }
 
             return;
         }
@@ -160,8 +182,18 @@ public class HW1 {
             Stack<Character> stack = new Stack<>();
             input = input.toLowerCase().replaceAll("\\s+", "");
 
-            // Your CODE GOES HERE
-            return false;
+            while(stack.size() != input.length()){
+                stack.push(input.charAt(stack.size()));
+            }
+
+            while(!stack.isEmpty()){
+                if(stack.pop() != input.charAt((input.length() - stack.size()) - 1)){
+                    return false;
+                }
+            }
+
+            return true;
+
         }
 
 
@@ -182,8 +214,21 @@ public class HW1 {
          */
         public static int findLargestK(Stack<Integer> stack, int k) {
 
-            // YOUR CODE GOES HERE
-            return -1;
+            Stack<Integer> temp = new Stack<>();
+            int index = -1;
+
+            while(!stack.isEmpty()){
+                temp.push(stack.pop());
+            }
+
+            while(!temp.isEmpty()){
+                if(temp.contains(k)){
+                    index++;
+                }
+                stack.push(temp.pop());
+            }
+
+            return index;
         }
 
     }  // End class Stacks
@@ -219,7 +264,7 @@ public class HW1 {
         */
 
         // RETURN THE CORRECT OPTION NUMBER LISTED ABOVE
-        return -1;
+        return 3;
     }
 
 
@@ -240,7 +285,7 @@ public class HW1 {
          */
 
         // RETURN THE CORRECT OPTION LISTED ABOVE
-        return -1;
+        return 2;
     }
 
 }
